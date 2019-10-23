@@ -14,6 +14,8 @@ $x = ceil($x/$count_flat);
     echo "Подьезд номер: $num, этаж номер: $x" . PHP_EOL;
 
 
+	
+	
 //БРИЛЛИАНГ
 $handle = fopen("php://stdin","r");
 $x = fgets($handle);
