@@ -40,4 +40,3 @@ function array_length($one, $two){
     return true;
 }
 array_length($array1, $array2);
-
