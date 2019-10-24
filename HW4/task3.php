@@ -5,19 +5,32 @@
 //echo $closure('John'); //__invoke()
 //echo get_class($closure);
 
-$close = function($fizz, $buzz, $num) {
-    $result = [];
+function fizzBuzz ($str){
+    $numbers = explode(" ", $str);
+    $fizz = $numbers[0];
+    $buzz = $numbers[1];
+    $num = $numbers[2];
+    $output = '';
     for ($i = 1; $i <= $num; $i++) {
-        if (($i % $fizz == 0) && ($i % $buzz == 0)) {
-            $result[] = "FB ";
-        } elseif ($i % $buzz == 0) {
-            $result[] = "B ";
-        } elseif ($i % $fizz == 0) {
-            $result[] = "F ";
-        } else $result[] = $i . " ";
+        if ($i % $fizz == 0) {
+            $output .= "F";
+        }
+        if ($i % $buzz == 0) {
+            $output .= "B";
+        }
+        if ($i % $fizz !=0 && $i % $buzz != 0) {
+            $output .= $i;
+        }
+        $output .= " ";
     }
-    return $result;
-};
-
-print_r ($close(4,5,50));
+return $output;
+}
+function working($file1, $file2){
+    $arr = file($file1);
+    $write = fopen($file2, 'w');
+    $result = array_map('fizzBuzz', $arr);
+    fwrite($write, implode("\n", $result));
+    return true;
+}
+working('file1.txt', 'file2.txt');
 
